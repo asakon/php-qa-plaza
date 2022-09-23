@@ -30,4 +30,17 @@ class QuestionsController extends AppController {
 
         $this->set(compact('question'));
     }
+
+    public function view(int $id) {
+        $question = $this->Questions->get($id);
+
+        $this->loadModel('Answers');
+        
+        $answers = $this->Answers->find()
+            ->where([ 'Answers.question_id' => $id])
+            ->orderAsc('Answers.id')
+            ->all();
+        
+        $this->set(compact('question', 'answers'));
+    }
 }

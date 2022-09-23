@@ -7,8 +7,11 @@
             <div class="card-body">
                 <p class="card-text">
                     <?= nl2br(h($q->body)) ?>
+                </p>
+                <p class="card-subtitle mb-2 text-muted">
                     <small><?= h($q->created) ?></small>
                 </p>
+                <?= $this->Html->link('詳細へ', ['action' => 'view', $q->id], ['class' => 'card-link']) ?>
             </div>
         </div>
     <?php endforeach; ?>
