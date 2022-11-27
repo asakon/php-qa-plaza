@@ -10,6 +10,7 @@
                 </p>
                 <p class="card-subtitle mb-2 text-muted">
                     <small><?= h($q->created) ?></small>
+                    <small><i class="fas fa-comment-dots"></i> <?= $this->Number->format($q->answered_count) ?></small>
                 </p>
                 <?= $this->Html->link('詳細へ', ['action' => 'view', $q->id], ['class' => 'card-link']) ?>
                 <?= $this->Form->postLink('削除する', ['action' => 'delete', $q->id],
