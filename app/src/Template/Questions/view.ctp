@@ -22,6 +22,11 @@
                         <i class="fa fa-user-circle"></i> <?= 'じろう' // @TODO あとで実装 ?>
                     </h5>
                     <p class="card-text"><?= nl2br(h($a->body)) ?></p>
+                    <p class="card-subtitle mb-2 text-muted">
+                        <small><?= h($a->created) ?></small>
+                        <?= $this->Form->postLink('削除する', ['controller' => 'Answers', 'action' => 'delete', $a->id],
+                        ['confirm' => '回答を削除します。よろしいですか？', 'class' => 'card-link']) ?>
+                    </p>
                 </div>
             </div>
         <?php endforeach; ?>

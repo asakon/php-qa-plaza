@@ -35,4 +35,18 @@ class AnswersController extends AppController {
 
         return $this->redirect(['controller' => 'Questions', 'action' => 'view', $answer->question_id]);
     }
+
+    public function delete(int $id) {
+        $answer = $this->Answers->get($id);
+        $questionId = $answer->question_id;
+        // @TODO 回答を削除できるのは回答投稿者のみとする
+
+        if($this->Answers->delete($answer)) {
+            $this->Flash->success('回答を削除しました');
+        } else {
+            $this->Flash->error('回答の削除に失敗しました');
+        }
+
+        return $this->redirect(['controller' => 'Questions', 'action' => 'view', $questionId]);
+    }
 }
