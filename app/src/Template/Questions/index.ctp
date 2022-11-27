@@ -12,6 +12,9 @@
                     <small><?= h($q->created) ?></small>
                 </p>
                 <?= $this->Html->link('詳細へ', ['action' => 'view', $q->id], ['class' => 'card-link']) ?>
+                <?= $this->Form->postLink('削除する', ['action' => 'delete', $q->id],
+                ['confirm' => '質問を削除します。よろしいですか？'],
+                ['class' => 'card-link']) ?>
             </div>
         </div>
     <?php endforeach; ?>
